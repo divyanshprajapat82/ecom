@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+.quill {
+  height: 150px;
+}
+
+.dropify-wrapper .dropify-message p{
+  font-size: 30px;
+  line-height: 35px;
+}
