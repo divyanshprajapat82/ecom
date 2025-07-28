@@ -22,7 +22,7 @@ export default function FrontPage() {
       adminPassword: e.target.password.value
     }
     
-    axios.post(`${apiBaseUrl}auth/login`, obj)
+    axios.post(`https://ecom-server-pi.vercel.app/auth/login`, obj)
     .then((res) => res.data)
     .then((finalData) => {
       if(finalData.status){
