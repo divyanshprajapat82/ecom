@@ -7,13 +7,24 @@ const { adminModel } = require("./app/models/adminModel");
 const { webRoutes } = require("./app/routers/web/webRoutes");
 
 let app = express();
-// app.use(cors())
+
+
 app.use(cors({
-  origin: "https://ecom-eo3v.vercel.app",
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"]
+  origin: 'https://ecom-eo3v.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
 }));
+
+// app.use(cors())
+// app.use(cors({
+//   origin: "https://ecom-eo3v.vercel.app",
+//   credentials: true,
+//   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+//   allowedHeaders: ["Content-Type", "Authorization"]
+// }));
+
+
 // const handler = app;
 
 // const allowedOrigins = ['https://ecom-eo3v.vercel.app'];
