@@ -8,26 +8,26 @@ const { webRoutes } = require("./app/routers/web/webRoutes");
 
 let app = express();
 // app.use(cors())
-// app.use(cors({
-//   origin: "https://ecom-eo3v.vercel.app",
-//   credentials: true,
-//   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-//   allowedHeaders: ["Content-Type", "Authorization"]
-// }));
-const handler = app;
-
-const allowedOrigins = ['https://ecom-eo3v.vercel.app'];
-
 app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+  origin: "https://ecom-eo3v.vercel.app",
   credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
+// const handler = app;
+
+// const allowedOrigins = ['https://ecom-eo3v.vercel.app'];
+
+// app.use(cors({
+//   origin: function (origin, callback) {
+//     if (!origin || allowedOrigins.includes(origin)) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   },
+//   credentials: true,
+// }));
 app.use(express.json());
 
 app.use("/admin", adminRoutes); // http://localhost:8000/admin
@@ -57,20 +57,20 @@ mongoose
     app.listen(process.env.PORT);
   });
 
-export default function handler(req, res) {
-  res.setHeader('Access-Control-Allow-Origin', 'https://ecom-eo3v.vercel.app');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+// export default function handler(req, res) {
+//   res.setHeader('Access-Control-Allow-Origin', 'https://ecom-eo3v.vercel.app');
+//   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+//   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  // Handle preflight
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
+//   // Handle preflight
+//   if (req.method === 'OPTIONS') {
+//     return res.status(200).end();
+//   }
 
-  // Your logic here
-  if (req.method === 'POST') {
-    res.status(200).json({ msg: 'Login success' });
-  } else {
-    res.status(405).json({ error: 'Method not allowed' });
-  }
-}
+//   // Your logic here
+//   if (req.method === 'POST') {
+//     res.status(200).json({ msg: 'Login success' });
+//   } else {
+//     res.status(405).json({ error: 'Method not allowed' });
+//   }
+// }
