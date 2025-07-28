@@ -7,6 +7,7 @@ const { adminModel } = require("./app/models/adminModel");
 const { webRoutes } = require("./app/routers/web/webRoutes");
 
 let app = express();
+app.use(cors())
 app.use(cors({
   origin: "https://ecom-eo3v.vercel.app",
   credentials: true,
