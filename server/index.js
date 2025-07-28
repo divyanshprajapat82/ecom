@@ -56,3 +56,21 @@ mongoose
     console.log("DB Connected");
     app.listen(process.env.PORT);
   });
+
+export default function handler(req, res) {
+  res.setHeader('Access-Control-Allow-Origin', 'https://ecom-eo3v.vercel.app');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  // Handle preflight
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
+  // Your logic here
+  if (req.method === 'POST') {
+    res.status(200).json({ msg: 'Login success' });
+  } else {
+    res.status(405).json({ error: 'Method not allowed' });
+  }
+}
