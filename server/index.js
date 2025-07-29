@@ -54,7 +54,8 @@ app.use("/uploads/slider", express.static("uploads/slider"));
 // app.listen(process.env.PORT)
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/ecomfurniture")
+  // .connect("mongodb://127.0.0.1:27017/ecomfurniture")
+  .connect("mongodb+srv://divyanshprajapat82:QhVNlOGo4VtOr504@cluster0.dwntouu.mongodb.net/")
   .then(async (res) => {
     let checkAdmin = await adminModel.find();
     if (checkAdmin.length == 0) {
